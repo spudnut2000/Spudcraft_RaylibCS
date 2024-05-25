@@ -18,7 +18,6 @@ public unsafe class Chunk
     public Chunk()
     {
         Generate();
-        CreateMesh();
     }
     
     public void Generate()
@@ -35,11 +34,6 @@ public unsafe class Chunk
         }
     }
     
-    public unsafe void CreateMesh()
-    {
-        
-    }
-
     public void Draw()
     {
         Raylib.DrawModel(_model, new Vector3(0, 0, 0), 1.0f, Color.White);
@@ -48,9 +42,60 @@ public unsafe class Chunk
     public Node GetNode(int x, int y, int z)
     {
         return Nodes[x, y, z];
-        
-        
     }
+    
+    public void UpdateMesh()
+    {
+        for (int x = 0; x < ChunkWidth; x++)
+        {
+            for (int y = 0; y < ChunkHeight; y++)
+            {
+                for (int z = 0; z < ChunkWidth; z++)
+                {
+                    CreateBlock(x, y, z);
+                }
+            }
+        }
+    }
+    
+    private void CreateBlock(int x, int y, int z)
+    {
+        var block = Nodes[x, y, z] as Block;
+        Vector3 blockPosition = new Vector3(x, y, z);
+
+        if (CheckTransparency(blockPosition + Vector3.UnitY))
+        {
+            // TODO: CreateBlockFace(Block.TopFace, blockPosition, block.TextureTop);
+        }
+        if (CheckTransparency(blockPosition - Vector3.UnitY))
+        {
+            // TODO: CreateBlockFace(Block.BottomFace, blockPosition, block.TextureBottom);
+        }
+        if (CheckTransparency(blockPosition + Vector3.UnitX))
+        {
+            // TODO: CreateBlockFace(Block.RightFace, blockPosition, block.TextureRight);
+        }
+        if (CheckTransparency(blockPosition - Vector3.UnitX))
+        {
+            // TODO: CreateBlockFace(Block.LeftFace, blockPosition, block.TextureLeft);
+        }
+        if (CheckTransparency(blockPosition + Vector3.UnitZ))
+        {
+            // TODO: CreateBlockFace(Block.FrontFace, blockPosition, block.TextureFront);
+        }
+        if (CheckTransparency(blockPosition - Vector3.UnitZ))
+        {
+            // TODO: CreateBlockFace(Block.BackFace, blockPosition, block.TextureBack);
+        }
+    }
+
+    private void CreateBlockFace(int[] face, Vector3 blockPosition, Texture2D texture)
+    {
+        // TODO: Implement CreateBlockFace
+    }
+
+
+    
     
     private bool CheckTransparency(int x, int y, int z)
     {
@@ -60,5 +105,10 @@ public unsafe class Chunk
         }
         
         return Nodes[x,y,z].IsTransparent;
+    }
+    
+    private bool CheckTransparency(Vector3 position)
+    {
+        return CheckTransparency((int)position.X, (int)position.Y, (int)position.Z);
     }
 }
