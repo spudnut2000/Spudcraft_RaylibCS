@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spudcraft_RaylibCS", "Spudcraft_RaylibCS.csproj", "{B778CD7F-E3AD-4805-9F9C-EF22E969636B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B778CD7F-E3AD-4805-9F9C-EF22E969636B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B778CD7F-E3AD-4805-9F9C-EF22E969636B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B778CD7F-E3AD-4805-9F9C-EF22E969636B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B778CD7F-E3AD-4805-9F9C-EF22E969636B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
