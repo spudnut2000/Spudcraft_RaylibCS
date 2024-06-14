@@ -5,6 +5,9 @@ using Spudcraft_RaylibCS.Engine;
 Game game = new();
 game.Start();
 
+
+
+
 // Raylib.InitWindow(1280, 960, "Hello World!");
 // Raylib.SetTargetFPS(60);
 //

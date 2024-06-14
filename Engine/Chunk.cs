@@ -36,7 +36,7 @@ public unsafe class Chunk
     
     public void Draw()
     {
-        Raylib.DrawModel(_model, new Vector3(0, 0, 0), 1.0f, Color.White);
+        DrawModel(_model, new Vector3(0, 0, 0), 1.0f, Color.White);
     }
 
     public Node GetNode(int x, int y, int z)
@@ -89,9 +89,38 @@ public unsafe class Chunk
         }
     }
 
-    private void CreateBlockFace(int[] face, Vector3 blockPosition, Texture2D texture)
+    private void CreateBlockFace(BlockFace face, Vector3 blockPosition, Texture2D texture)
     {
         // TODO: Implement CreateBlockFace
+        if (face is BlockFace.Top)
+        {
+            // TODO: Implement CreateBlockFace Top
+        }
+
+        if (face is BlockFace.Bottom)
+        {
+            // TODO: Implement CreateBlockFace Bottom
+        }
+
+        if (face is BlockFace.Left)
+        {
+            // TODO: Implement CreateBlockFace Left
+        }
+
+        if (face is BlockFace.Right)
+        {
+            // TODO: Implement CreateBlockFace Right
+        }
+
+        if (face is BlockFace.Front)
+        {
+            // TODO: Implement CreateBlockFace Front
+        }
+
+        if (face is BlockFace.Back)
+        {
+            // TODO: Implement CreateBlockFace Back
+        }
     }
 
 
@@ -111,4 +140,14 @@ public unsafe class Chunk
     {
         return CheckTransparency((int)position.X, (int)position.Y, (int)position.Z);
     }
+}
+
+public enum BlockFace
+{
+    Front,
+    Back,
+    Top,
+    Bottom,
+    Left,
+    Right
 }
